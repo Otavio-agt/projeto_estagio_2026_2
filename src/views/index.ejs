@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio de Tatuagem</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+  <header class="max-w-3xl mx-auto px-4 py-10 text-center">
+    <h1 class="text-3xl font-bold">Estudio de Tatuagem</h1>
+    <p class="text-neutral-400 mt-2">Agende sua sessao. Trabalhamos com fineline, blackwork, colorido e geometrico.</p>
+  </header>
+
+  <main class="max-w-md mx-auto px-4 pb-16">
+    <% if (sucesso) { %>
+      <div class="bg-green-900/40 border border-green-700 text-green-200 rounded-lg px-4 py-3 mb-6">
+        Agendamento enviado! Em breve entraremos em contato.
+      </div>
+    <% } %>
+
+    <form action="/agendamentos" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm mb-1" for="nome">Nome</label>
+        <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="text" id="nome" name="nome" required />
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1" for="email">Email</label>
+        <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="email" id="email" name="email" required />
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1" for="estilo">Estilo</label>
+        <select class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" id="estilo" name="estilo" required>
+          <% estilos.forEach(estilo => { %>
+            <option value="<%= estilo %>"><%= estilo %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm mb-1" for="data">Data</label>
+          <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="date" id="data" name="data" required />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="horario">Horario</label>
+          <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="time" id="horario" name="horario" required />
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-neutral-100 text-neutral-900 rounded-md py-2 font-semibold hover:bg-white transition">
+        Agendar
+      </button>
+    </form>
+  </main>
+</body>
+</html>
