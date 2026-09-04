@@ -1,1 +1,171 @@
-/* estilos adicionais, alem do Tailwind via CDN, entram aqui */
+/* ---------------------------------------------------------
+   Leao Barbearia — design system
+   Warm, calm palette. Ticket-stub motif for services,
+   a barber-badge emblem as the signature mark.
+--------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --paper: #f6efe6;
+  --paper-shade: #ece0ce;
+  --ink: #332920;
+  --sage: #5f7a6c;
+  --gold: #c7a16b;
+  --rust: #b3695a;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Karla', system-ui, sans-serif;
+}
+
+.font-display { font-family: 'Staatliches', sans-serif; letter-spacing: 0.02em; }
+.font-body { font-family: 'Karla', system-ui, sans-serif; }
+.font-mono { font-family: 'Space Mono', monospace; }
+
+/* ---- diagonal stripe accent, a quiet nod to the barber pole ---- */
+.pole-stripe {
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--sage), var(--sage) 10px,
+    var(--gold) 10px, var(--gold) 20px,
+    var(--paper) 20px, var(--paper) 30px
+  );
+}
+
+/* ---- service ticket card: clean top, torn/perforated bottom ---- */
+.ticket-card {
+  position: relative;
+  background: var(--paper);
+  border: 1.5px solid rgba(51, 41, 32, 0.55);
+  border-bottom: none;
+  box-shadow: 0 10px 24px rgba(51, 41, 32, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ticket-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 10px;
+  background-image: radial-gradient(circle at 50% 0, var(--paper) 4px, transparent 4.5px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  border-bottom: 1.5px solid rgba(51, 41, 32, 0.55);
+}
+.ticket-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(51, 41, 32, 0.12);
+}
+
+/* ---- primary button, a soft rounded stamp rather than a hard rubber-ink one ---- */
+.stamp-btn {
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.8rem 2rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+.stamp-btn:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--paper);
+}
+
+/* ---- ticket / clipboard card (the booking form) ---- */
+.ticket {
+  background: var(--paper);
+  border: 1.5px solid rgba(51, 41, 32, 0.55);
+  box-shadow: 0 16px 32px rgba(51, 41, 32, 0.1);
+  position: relative;
+  border-radius: 4px;
+}
+.ticket::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 22px;
+  background: var(--ink);
+  border-radius: 6px;
+}
+.ticket::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 10px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+}
+
+.ticket-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(51, 41, 32, 0.3);
+  padding: 0.5rem 0.25rem;
+  font-family: 'Karla', system-ui, sans-serif;
+  color: var(--ink);
+}
+.ticket-input:focus {
+  outline: none;
+  border-bottom-color: var(--sage);
+}
+
+/* ---- badge emblem ---- */
+.badge-emblem circle { fill: none; }
+.badge-emblem text { fill: var(--ink); }
+
+/* ---- status stamps (painel) ---- */
+.status-stamp {
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 10px;
+  display: inline-block;
+}
+.status-stamp.pendente { color: var(--gold); }
+.status-stamp.confirmado { color: var(--sage); }
+.status-stamp.cancelado { color: var(--rust); }
+
+/* ---- Accessibility ---- */
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

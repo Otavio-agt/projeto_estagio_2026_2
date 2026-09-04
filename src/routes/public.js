@@ -3,23 +3,23 @@ const db = require('../db/database');
 
 const router = express.Router();
 
-const ESTILOS = ['fineline', 'blackwork', 'colorido', 'geometrico'];
+const SERVICOS = ['corte', 'barba', 'corte e barba', 'corte infantil'];
 
 router.get('/', (req, res) => {
-  res.render('index', { estilos: ESTILOS, sucesso: req.query.sucesso === '1' });
+  res.render('index', { servicos: SERVICOS, sucesso: req.query.sucesso === '1' });
 });
 
 router.post('/agendamentos', (req, res) => {
-  const { nome, email, estilo, data, horario } = req.body;
+  const { nome, email, servico, data, horario } = req.body;
 
-  if (!nome || !email || !ESTILOS.includes(estilo) || !data || !horario) {
+  if (!nome || !email || !SERVICOS.includes(servico) || !data || !horario) {
     return res.redirect('/?sucesso=0');
   }
 
   db.prepare(
-    `INSERT INTO agendamentos (nome, email, estilo, data, horario)
+    `INSERT INTO agendamentos (nome, email, servico, data, horario)
      VALUES (?, ?, ?, ?, ?)`
-  ).run(nome, email, estilo, data, horario);
+  ).run(nome, email, servico, data, horario);
 
   res.redirect('/?sucesso=1');
 });

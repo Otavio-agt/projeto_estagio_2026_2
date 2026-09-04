@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
   <title>Login - Painel</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body class="bg-neutral-950 text-neutral-100 flex items-center justify-center min-h-screen">
-  <form action="/login" method="POST" class="w-full max-w-sm space-y-4 px-4">
-    <h1 class="text-2xl font-bold text-center mb-6">Login do Painel</h1>
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div class="ticket w-full max-w-sm p-8 mt-6">
+    <p class="font-display text-3xl text-center mb-1">Leao Barbearia</p>
+    <p class="font-mono text-[10px] uppercase tracking-widest text-center text-[var(--ink)]/50 mb-8">Acesso do painel</p>
 
     <% if (erro) { %>
-      <div class="bg-red-900/40 border border-red-700 text-red-200 rounded-lg px-4 py-2 text-sm">
+      <div class="border-2 border-[var(--rust)] text-[var(--rust)] font-mono text-xs uppercase tracking-wide px-4 py-2 mb-6 text-center">
         <%= erro %>
       </div>
     <% } %>
 
-    <div>
-      <label class="block text-sm mb-1" for="email">Email</label>
-      <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="email" id="email" name="email" required />
-    </div>
+    <form action="/login" method="POST" class="space-y-5">
+      <div>
+        <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="email">Email</label>
+        <input class="ticket-input" type="email" id="email" name="email" required />
+      </div>
 
-    <div>
-      <label class="block text-sm mb-1" for="senha">Senha</label>
-      <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="password" id="senha" name="senha" required />
-    </div>
+      <div>
+        <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="senha">Senha</label>
+        <input class="ticket-input" type="password" id="senha" name="senha" required />
+      </div>
 
-    <button type="submit" class="w-full bg-neutral-100 text-neutral-900 rounded-md py-2 font-semibold hover:bg-white transition">
-      Entrar
-    </button>
-  </form>
+      <button type="submit" class="stamp-btn w-full mt-2">Entrar</button>
+    </form>
+  </div>
 </body>
 </html>

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS agendamentos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   nome TEXT NOT NULL,
   email TEXT NOT NULL,
-  estilo TEXT NOT NULL CHECK (estilo IN ('fineline', 'blackwork', 'colorido', 'geometrico')),
+  servico TEXT NOT NULL CHECK (servico IN ('corte', 'barba', 'corte e barba', 'corte infantil')),
   data TEXT NOT NULL,
   horario TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'pendente' CHECK (status IN ('pendente', 'confirmado', 'cancelado')),

@@ -3,58 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estudio de Tatuagem</title>
+  <meta name="color-scheme" content="light" />
+  <title>Leao Barbearia</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body class="bg-neutral-950 text-neutral-100">
-  <header class="max-w-3xl mx-auto px-4 py-10 text-center">
-    <h1 class="text-3xl font-bold">Estudio de Tatuagem</h1>
-    <p class="text-neutral-400 mt-2">Agende sua sessao. Trabalhamos com fineline, blackwork, colorido e geometrico.</p>
+<body class="min-h-screen">
+
+  <nav class="fixed top-0 inset-x-0 z-50 bg-[var(--paper)]/95 border-b border-[var(--ink)]/15 backdrop-blur">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <span class="font-display text-2xl tracking-wide">Leao Barbearia</span>
+      <a href="#agendamento" class="stamp-btn !py-2 !px-4 text-xs">Agendar</a>
+    </div>
+  </nav>
+  <div class="pole-stripe fixed top-16 inset-x-0 z-50"></div>
+
+  <header class="pt-32 pb-16 sm:pt-44 sm:pb-24 px-4 sm:px-6 text-center">
+    <svg viewBox="0 0 200 200" class="badge-emblem w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-6">
+      <defs>
+        <path id="topArc" d="M 26,104 A 74,74 0 0 1 174,104" />
+        <path id="bottomArc" d="M 42,132 A 60,60 0 0 0 158,132" />
+      </defs>
+      <circle cx="100" cy="100" r="90" stroke="var(--ink)" stroke-width="3" />
+      <circle cx="100" cy="100" r="78" stroke="var(--sage)" stroke-width="1.5" />
+      <text font-family="Staatliches" font-size="22" letter-spacing="5">
+        <textPath href="#topArc" startOffset="50%" text-anchor="middle">LEAO</textPath>
+      </text>
+      <text font-family="'Space Mono'" font-size="9" letter-spacing="3">
+        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">BARBEARIA</textPath>
+      </text>
+      <g stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="80" y1="88" x2="118" y2="118" />
+        <line x1="118" y1="88" x2="80" y2="118" />
+        <circle cx="76" cy="86" r="7" />
+        <circle cx="76" cy="120" r="7" />
+      </g>
+    </svg>
+
+    <p class="font-mono uppercase tracking-[0.3em] text-[var(--sage)] text-xs sm:text-sm mb-4">Barbearia</p>
+    <h1 class="font-display text-5xl sm:text-7xl leading-[0.95] mb-6">
+      Seu estilo,
+      <br />
+      nossa
+      <span class="relative inline-block px-1">
+        navalha
+        <svg class="absolute -inset-x-3 -inset-y-2 w-[calc(100%+1.5rem)] h-[calc(100%+1rem)] pointer-events-none" viewBox="0 0 200 70" preserveAspectRatio="none">
+          <path d="M6,35 C25,10 175,10 194,35 C175,60 25,62 6,35" fill="none" stroke="var(--gold)" stroke-width="3" />
+        </svg>
+      </span>
+    </h1>
+    <p class="font-body text-[var(--ink)]/70 max-w-md mx-auto mb-8 text-sm sm:text-base px-2">
+      Corte, barba ou os dois. Agende seu horario e saia daqui com a cara nova.
+    </p>
+    <a href="#agendamento" class="stamp-btn">Agende seu horario</a>
   </header>
 
-  <main class="max-w-md mx-auto px-4 pb-16">
-    <% if (sucesso) { %>
-      <div class="bg-green-900/40 border border-green-700 text-green-200 rounded-lg px-4 py-3 mb-6">
-        Agendamento enviado! Em breve entraremos em contato.
-      </div>
-    <% } %>
+  <section class="py-14 sm:py-24 px-4 sm:px-6" style="background: var(--paper-shade);">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-display text-4xl sm:text-5xl text-center mb-2">Nossos servicos</h2>
+      <p class="font-mono text-xs uppercase tracking-widest text-center text-[var(--ink)]/60 mb-12 sm:mb-16">Escolha o que combina com voce</p>
 
-    <form action="/agendamentos" method="POST" class="space-y-4">
-      <div>
-        <label class="block text-sm mb-1" for="nome">Nome</label>
-        <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="text" id="nome" name="nome" required />
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1" for="email">Email</label>
-        <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="email" id="email" name="email" required />
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1" for="estilo">Estilo</label>
-        <select class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" id="estilo" name="estilo" required>
-          <% estilos.forEach(estilo => { %>
-            <option value="<%= estilo %>"><%= estilo %></option>
-          <% }) %>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label class="block text-sm mb-1" for="data">Data</label>
-          <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="date" id="data" name="data" required />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+        <div class="ticket-card p-6 pb-8">
+          <p class="font-mono text-[10px] tracking-widest text-[var(--ink)]/50 mb-3">No. 01</p>
+          <p class="font-display text-2xl mb-2" style="color: var(--sage);">Corte</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Acabamento na regua, do jeito que voce gosta.</p>
         </div>
-        <div>
-          <label class="block text-sm mb-1" for="horario">Horario</label>
-          <input class="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2" type="time" id="horario" name="horario" required />
+
+        <div class="ticket-card p-6 pb-8">
+          <p class="font-mono text-[10px] tracking-widest text-[var(--ink)]/50 mb-3">No. 02</p>
+          <p class="font-display text-2xl mb-2" style="color: var(--gold);">Barba</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Toalha quente, navalha afiada, barba no ponto certo.</p>
+        </div>
+
+        <div class="ticket-card p-6 pb-8">
+          <p class="font-mono text-[10px] tracking-widest text-[var(--ink)]/50 mb-3">No. 03</p>
+          <p class="font-display text-2xl mb-2" style="color: var(--rust);">Corte e barba</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">O combo completo pra sair renovado.</p>
+        </div>
+
+        <div class="ticket-card p-6 pb-8">
+          <p class="font-mono text-[10px] tracking-widest text-[var(--ink)]/50 mb-3">No. 04</p>
+          <p class="font-display text-2xl mb-2" style="color: var(--ink);">Corte infantil</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Paciencia e capricho pros clientes pequenos.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <button type="submit" class="w-full bg-neutral-100 text-neutral-900 rounded-md py-2 font-semibold hover:bg-white transition">
-        Agendar
-      </button>
-    </form>
-  </main>
+  <section class="py-14 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-4xl sm:text-5xl text-center mb-12 sm:mb-16">Como funciona</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--sage)] text-[var(--paper)] font-mono font-bold text-sm flex items-center justify-center mx-auto mb-4">1</div>
+          <p class="font-body font-semibold mb-1">Escolha o servico</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Corte, barba ou o combo dos dois.</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--sage)] text-[var(--paper)] font-mono font-bold text-sm flex items-center justify-center mx-auto mb-4">2</div>
+          <p class="font-body font-semibold mb-1">Marque data e horario</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Preencha a ficha com o dia que funciona pra voce.</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--sage)] text-[var(--paper)] font-mono font-bold text-sm flex items-center justify-center mx-auto mb-4">3</div>
+          <p class="font-body font-semibold mb-1">Aguarde a confirmacao</p>
+          <p class="font-body text-sm text-[var(--ink)]/70">Entramos em contato pra confirmar seu horario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agendamento" class="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-16" style="background: var(--paper-shade);">
+    <div class="max-w-md mx-auto">
+      <h2 class="font-display text-4xl sm:text-5xl text-center mb-2">Agende seu horario</h2>
+      <p class="font-mono text-xs uppercase tracking-widest text-center text-[var(--ink)]/60 mb-10">Preencha a ficha abaixo</p>
+
+      <div class="ticket p-6 sm:p-8 mt-6">
+        <% if (sucesso) { %>
+          <div class="border-2 border-[var(--sage)] text-[var(--sage)] font-mono text-xs uppercase tracking-wide px-4 py-3 mb-6 text-center">
+            Agendamento enviado. Em breve entraremos em contato.
+          </div>
+        <% } %>
+
+        <form action="/agendamentos" method="POST" class="space-y-5">
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="nome">Nome</label>
+            <input class="ticket-input" type="text" id="nome" name="nome" required />
+          </div>
+
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="email">Email</label>
+            <input class="ticket-input" type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="servico">Servico</label>
+            <select class="ticket-input" id="servico" name="servico" required>
+              <% servicos.forEach(servico => { %>
+                <option value="<%= servico %>"><%= servico %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="data">Data</label>
+              <input class="ticket-input" type="date" id="data" name="data" required />
+            </div>
+            <div>
+              <label class="block font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 mb-1" for="horario">Horario</label>
+              <input class="ticket-input" type="time" id="horario" name="horario" required />
+            </div>
+          </div>
+
+          <button type="submit" class="stamp-btn w-full mt-2">Agendar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-[var(--ink)]/15 py-8 text-center font-mono text-[10px] uppercase tracking-widest text-[var(--ink)]/60 px-4">
+    Leao Barbearia &mdash; projeto feito para o teste tecnico da Mupi Systems
+  </footer>
 </body>
 </html>
