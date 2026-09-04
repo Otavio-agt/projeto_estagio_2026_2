@@ -33,6 +33,7 @@
               <th class="py-2 pr-4">Data</th>
               <th class="py-2 pr-4">Horario</th>
               <th class="py-2 pr-4">Status</th>
+              <th class="py-2 pr-4">Acoes</th>
             </tr>
           </thead>
           <tbody class="font-body text-sm">
@@ -45,6 +46,22 @@
                 <td class="py-3 pr-4 font-mono"><%= a.horario %></td>
                 <td class="py-3 pr-4">
                   <span class="status-stamp <%= a.status %>"><%= a.status %></span>
+                </td>
+                <td class="py-3 pr-4">
+                  <div class="flex flex-wrap gap-2">
+                    <% if (a.status !== 'confirmado') { %>
+                      <form action="/painel/agendamentos/<%= a.id %>/status" method="POST">
+                        <input type="hidden" name="status" value="confirmado" />
+                        <button type="submit" class="font-mono text-[10px] uppercase tracking-widest border border-[var(--sage)] text-[var(--sage)] rounded-full px-2 py-1 hover:bg-[var(--sage)] hover:text-[var(--paper)] transition">Confirmar</button>
+                      </form>
+                    <% } %>
+                    <% if (a.status !== 'cancelado') { %>
+                      <form action="/painel/agendamentos/<%= a.id %>/status" method="POST">
+                        <input type="hidden" name="status" value="cancelado" />
+                        <button type="submit" class="font-mono text-[10px] uppercase tracking-widest border border-[var(--rust)] text-[var(--rust)] rounded-full px-2 py-1 hover:bg-[var(--rust)] hover:text-[var(--paper)] transition">Cancelar</button>
+                      </form>
+                    <% } %>
+                  </div>
                 </td>
               </tr>
             <% }) %>
