@@ -124,6 +124,14 @@
           <div class="border-2 border-[var(--sage)] text-[var(--sage)] font-mono text-xs uppercase tracking-wide px-4 py-3 mb-6 text-center">
             Agendamento enviado. Em breve entraremos em contato.
           </div>
+        <% } else if (erro === 'conflito') { %>
+          <div class="border-2 border-[var(--rust)] text-[var(--rust)] font-mono text-xs uppercase tracking-wide px-4 py-3 mb-6 text-center">
+            Esse horario ja esta reservado. Escolha outro horario.
+          </div>
+        <% } else if (erro === 'invalido') { %>
+          <div class="border-2 border-[var(--rust)] text-[var(--rust)] font-mono text-xs uppercase tracking-wide px-4 py-3 mb-6 text-center">
+            Nao foi possivel agendar. Confira os dados e tente de novo.
+          </div>
         <% } %>
 
         <form action="/agendamentos" method="POST" class="space-y-5">

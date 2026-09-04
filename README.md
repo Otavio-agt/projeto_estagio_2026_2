@@ -52,7 +52,7 @@ O banco (`banco.db`) é criado automaticamente na primeira execução, a partir 
 
 Use o email e a senha definidos em `ADMIN_EMAIL` / `ADMIN_SENHA` no `.env`. Os valores padrão em `.env.example` são:
 
-- **email:** `admin@estudio.com`
+- **email:** `admin@leaobarbearia.com`
 - **senha:** `senha123`
 
 Se quiser trocar as credenciais depois de já ter criado o `.env`, edite `ADMIN_EMAIL`/`ADMIN_SENHA` e rode `npm run seed:admin` de novo — o script atualiza a senha do usuário existente em vez de duplicar.

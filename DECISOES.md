@@ -25,10 +25,14 @@ A primeira versão do projeto era um estúdio de tatuagem, com uma identidade vi
 
 ## O que ficou de fora (de propósito)
 
-- **Mudar o status pelo painel** (confirmar/cancelar um agendamento direto na listagem). O painel hoje só *lista* os agendamentos com o status atual. Ficou de fora porque priorizei fechar o fluxo básico (formulário → banco → login → painel → logout) e a estilização antes de expandir funcionalidade. É o próximo item natural de "além do mínimo".
 - **Envio de email de verdade**: a confirmação é só visual, na própria página. Não integrei nenhum serviço de email — não fazia sentido gastar tempo nisso pra um teste técnico.
-- **Validação de conflito de horário** (dois agendamentos no mesmo horário): o formulário aceita qualquer combinação de data/horário sem checar duplicidade. Ficou de fora por tempo; numa barbearia de verdade seria importante.
 - **Paginação no painel**: como o volume de dados de um teste é pequeno, não implementei. Seria necessário numa base de dados real.
+- **"Esqueci minha senha" / troca de senha pelo painel**: a única forma de trocar a senha do admin é editando o `.env` e rodando `npm run seed:admin` de novo. Pra um único usuário admin, não achei que valia a complexidade extra.
+
+## Além do mínimo
+
+- **Confirmar/cancelar agendamento direto no painel**: cada linha mostra só as ações que fazem sentido pro status atual (some "confirmar" se já está confirmado, e vice-versa).
+- **Validação de conflito de horário**: o formulário recusa um novo agendamento se já existir outro (não cancelado) na mesma data e horário, e mostra uma mensagem explicando o motivo.
 
 ## Uso de IA
 
