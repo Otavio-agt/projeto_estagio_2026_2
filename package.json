@@ -1,7 +1,7 @@
 {
-  "name": "estudio-tattoo-agendamentos",
+  "name": "leao-barbearia-agendamentos",
   "version": "1.0.0",
-  "description": "Pagina publica de agendamento e painel de gestao para um estudio de tatuagem",
+  "description": "Pagina publica de agendamento e painel de gestao para uma barbearia",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
