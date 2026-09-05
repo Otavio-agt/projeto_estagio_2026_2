@@ -1,5 +1,3 @@
-<img src="logo.png" alt="Mupi Systems Logo" width="200"/>
-
 # Estágio em Tecnologia - Desenvolvimento Full Stack
 
 ## Sobre o teste

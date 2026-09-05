@@ -1,6 +1,6 @@
 # Leão Barbearia
 
-Teste técnico de Estágio Full Stack (Mupi Systems). O enunciado original está em [`ENUNCIADO.md`](./ENUNCIADO.md); as decisões de tema, stack e uso de IA estão em [`DECISOES.md`](./DECISOES.md).
+Teste técnico de Estágio Full Stack (Mupi Systems). O enunciado original está em [`desafio.md`](./desafio.md); as decisões de tema, stack e uso de IA estão em [`DECISOES.md`](./DECISOES.md).
 
 Página pública de agendamento + painel de gestão para uma barbearia fictícia:
 
@@ -83,6 +83,6 @@ estagio-mupi/
 │   └── seed-admin.js       # cria/atualiza o usuario admin a partir do .env
 ├── .env.example
 ├── DECISOES.md
-├── ENUNCIADO.md
+├── desafio.md
 └── package.json
 ```
